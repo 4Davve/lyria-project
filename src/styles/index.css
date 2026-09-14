@@ -1,1 +1,103 @@
+@font-face {
+  font-display: swap;
+  font-family: "Anton";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/Anton/Anton-Regular.woff2") format("woff2"),
+    url("../assets/fonts/Anton/Anton-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Anton SC";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/AntonSC/AntonSC-Regular.woff2") format("woff2"),
+    url("../assets/fonts/AntonSC/AntonSC-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/Inter/Inter-Regular.woff2") format("woff2"),
+    url("../assets/fonts/Inter/Inter-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../assets/fonts/Inter/Inter-Medium.woff2") format("woff2"),
+    url("../assets/fonts/Inter/Inter-Medium.ttf") format("truetype");
+}
+
 @import "tailwindcss";
+
+@theme {
+  /* Text color */
+  --text-primary-dark: #010314;
+  --text-second-light: #ffffff;
+  --text-primary-blue: #bbdbfa;
+  --text-body: #bbbbbb;
+
+  /* Button colors */
+  --btn-primary: #ffffff;
+  --btn-hover: #bbdbfa;
+
+  /* Logo */
+  --logo: #bbdbfa;
+  --logo-hover: #d5e8fb;
+
+  /* Background */
+  --primary: #010314;
+  --second: #bbdbfa;
+
+  /* Font Family */
+  --font-inter: "Inter", sans-serif;
+  --font-anton-sc: "Anton SC", sans-serif;
+  --font-anton: "Anton", sans-serif;
+
+  /* Font Size */
+  --clamp-sm: clamp(8px, 1vw, 14px);
+  --clamp-base: clamp(10px, 1vw, 16px);
+  --clamp-bm: clamp(10px, 1.66vw, 24px);
+  --clamp-md: clamp(18px, 2vw, 30px);
+  --clamp-lg: clamp(43px, 5vw, 72px);
+  --clamp-xl: clamp(0.9rem, 0.225rem + 2.25vw, 2.25rem);
+  --clamp-xxl: clamp(196px, 29.65vw, 427px);
+  --clamp-xxxl: clamp(306px, 53.12vw, 765px);
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--text-body);
+  background-color: var(--primary);
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+button {
+  cursor: pointer;
+}
