@@ -1,9 +1,9 @@
-import "./styles/index.css";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <>
-      <div>Test</div>
+      <Header />
     </>
   );
 }
