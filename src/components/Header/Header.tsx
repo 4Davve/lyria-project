@@ -17,12 +17,12 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex justify-between items-center absolute top-0 left-0 w-full h-20 bg-transparent px-[15px] z-50">
+      <header className="flex justify-between items-center absolute top-0 left-0 w-full h-[76px] lg:h-[84px] bg-transparent px-[20px] md:px-[32px] lg:px-[60px] z-50">
         <Link to="/" className="font-anton-sc font-medium text-[#BBDBFA] text-3xl z-50">
           lyria
         </Link>
 
-        <nav className="hidden md:flex h-full">
+        <nav className="hidden lg:flex h-full">
           <ul className="flex h-full gap-[40px] text-[#FFFFFF] font-inter font-medium text-sm leading-snug tracking-widest whitespace-nowrap uppercase">
             {navItems.slice(0, 3).map(({ label, to }) => (
               <li key={to} className="flex items-center h-full">

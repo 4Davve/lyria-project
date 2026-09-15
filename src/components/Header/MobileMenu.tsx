@@ -40,7 +40,7 @@ const MobileMenu = () => {
     <>
       <button
         onClick={handleMenuClick}
-        className="md:hidden flex flex-col justify-center items-center gap-[6px] p-3 cursor-pointer hover:opacity-75 z-50 w-10 h-10 relative"
+        className="lg:hidden flex flex-col justify-center items-center gap-[6px] p-3 cursor-pointer hover:opacity-75 z-50 w-10 h-10 relative"
         aria-label="Toggle menu"
       >
         <span
