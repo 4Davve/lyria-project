@@ -1,14 +1,21 @@
 import { useState, useEffect } from "react";
+import { NavLink, type NavLinkRenderProps } from "react-router-dom";
+
+interface MobileNavItem {
+  num: string;
+  label: string;
+  to: string;
+}
 
 const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const navItems = [
-    { num: "01", label: "home", href: "/" },
-    { num: "02", label: "about us", href: "/about" },
-    { num: "03", label: "episodes", href: "/episodes" },
-    { num: "04", label: "blog", href: "/blog" },
-    { num: "05", label: "contact us", href: "/contact" },
+  const navItems: MobileNavItem[] = [
+    { num: "01", label: "home", to: "/" },
+    { num: "02", label: "about us", to: "/about" },
+    { num: "03", label: "episodes", to: "/episodes" },
+    { num: "04", label: "blog", to: "/blog" },
+    { num: "05", label: "contact us", to: "/contact" },
   ];
 
   useEffect(() => {
@@ -19,10 +26,20 @@ const MobileMenu = () => {
     setIsOpen(false);
   };
 
+  const handleMenuClick = (): void => {
+    setIsOpen((prev) => !prev);
+  };
+
+  const getMobileNavLinkClass = ({ isActive }: NavLinkRenderProps): string => {
+    const base =
+      "flex flex-1 items-center font-anton-sc font-normal text-3xl leading-tight tracking-tight whitespace-nowrap uppercase";
+    return `${base} ${isActive ? "text-[#BBDBFA]" : "text-[#FFFFFF]"}`;
+  };
+
   return (
     <>
       <button
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={handleMenuClick}
         className="md:hidden flex flex-col justify-center items-center gap-[6px] p-3 cursor-pointer hover:opacity-75 z-50 w-10 h-10 relative"
         aria-label="Toggle menu"
       >
@@ -61,20 +78,16 @@ const MobileMenu = () => {
         >
           <nav className="md:block w-full">
             <ul className="flex flex-col items-start w-full gap-[10px]">
-              {navItems.map(({ num, label, href }) => (
-                <li key={href} className="flex flex-row w-full gap-[10px]">
+              {navItems.map(({ num, label, to }) => (
+                <li key={to} className="flex flex-row w-full gap-[10px]">
                   <div className="flex items-end">
                     <span className="text-[#BBBBBB] font-inter font-normal w-[28px] text-[14px] leading-[20px] tracking-[0.15em]">
                       {num}
                     </span>
                   </div>
-                  <a
-                    href={href}
-                    onClick={handleLinkClick}
-                    className="flex flex-1 items-center text-[#BBDBFA] font-anton-sc font-normal text-3xl leading-tight tracking-tight whitespace-nowrap uppercase"
-                  >
+                  <NavLink to={to} className={getMobileNavLinkClass}>
                     {label}
-                  </a>
+                  </NavLink>
                 </li>
               ))}
             </ul>
